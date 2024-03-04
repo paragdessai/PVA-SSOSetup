@@ -194,7 +194,7 @@ async function fetchJSON(url, options = {}) {
 
     // Add your BOT ID below 
     var theURL = "https://a58c67d995c4eaa1b784e96746d9c6.1b.environment.api.powerplatform.com/powervirtualagents/botsbyschema/cr579_customerDemoBot/directline/token?api-version=2022-03-01-preview" // you can find the token URL via the mobile app channel configuration
-
+     var userdetails = clientApplication.getAccount();
 	var userId = clientApplication.account?.accountIdentifier != null ? 
 					("You-customized-prefix" + clientApplication.account.accountIdentifier).substr(0, 64) 
 					: (Math.random().toString() + Date.now().toString()).substr(0,64);
@@ -209,7 +209,7 @@ async function fetchJSON(url, options = {}) {
 	  payload: {
 	    name: 'startConversation',
 	    type: 'event',
-	    value: { text: clientApplication.getAccount()}
+	    value: { text: userdetails.name}
 	  }
 	});
 	return next(action);
