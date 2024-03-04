@@ -10,6 +10,24 @@
 <script type="text/javascript">
   if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/lib/1.2.0/js/msal.js' type='text/javascript' %3E%3C/script%3E"));
 </script>
+<script>
+    var clientApplication;
+     (function (){
+       var msalConfig = {
+	   auth: {
+	     clientId: '97e63c85-08cb-4587-8f88-ed65955cc83d',
+	     authority: 'https://login.microsoftonline.com/76f66a0b-386f-4e01-b8b1-7ef54f95456c'
+	   },
+	   cache: {
+	     cacheLocation: 'localStorage',
+	     storeAuthStateInCookie: false
+	   }
+       };
+       if (!clientApplication) {
+	 clientApplication = new Msal.UserAgentApplication(msalConfig);
+       }
+     } ());
+</script>
 
   <style>
       html, body {
@@ -175,22 +193,7 @@ async function fetchJSON(url, options = {}) {
 </script>
 
 <script>
-     var clientApplication;
-     (function (){
-       var msalConfig = {
-	   auth: {
-	     clientId: '97e63c85-08cb-4587-8f88-ed65955cc83d',
-	     authority: 'https://login.microsoftonline.com/76f66a0b-386f-4e01-b8b1-7ef54f95456c'
-	   },
-	   cache: {
-	     cacheLocation: 'localStorage',
-	     storeAuthStateInCookie: false
-	   }
-       };
-       if (!clientApplication) {
-	 clientApplication = new Msal.UserAgentApplication(msalConfig);
-       }
-     } ());
+ 
 
 (async function main() {
 
