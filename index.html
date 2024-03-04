@@ -209,7 +209,7 @@ async function fetchJSON(url, options = {}) {
 	  payload: {
 	    name: 'startConversation',
 	    type: 'event',
-	    value: { text: userId }
+	    value: { text: clientApplication.getAccount()}
 	  }
 	});
 	return next(action);
