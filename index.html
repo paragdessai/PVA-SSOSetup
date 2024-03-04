@@ -110,7 +110,7 @@
   </style>
 
 </head>
-<body>
+<body onload="onSignInClick()">
 <div id="chatwindow">
   <div id="heading">
     <div><span>SSO Test Bot</span></div>
@@ -124,9 +124,7 @@
   <div id="webchat">
   </div>
 
-</div>
-
-onload="onSignInClick()"	
+</div>	
 <script>
 function onSignin(idToken) {
       let user = clientApplication.getAccount();
